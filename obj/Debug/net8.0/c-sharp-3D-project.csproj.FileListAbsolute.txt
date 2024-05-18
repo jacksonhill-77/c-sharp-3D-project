@@ -1,0 +1,5 @@
+/home/jackson/repos/c-sharp-3D-project/obj/Debug/net8.0/c-sharp-3D-project.GeneratedMSBuildEditorConfig.editorconfig
+/home/jackson/repos/c-sharp-3D-project/obj/Debug/net8.0/c-sharp-3D-project.AssemblyInfoInputs.cache
+/home/jackson/repos/c-sharp-3D-project/obj/Debug/net8.0/c-sharp-3D-project.AssemblyInfo.cs
+/home/jackson/repos/c-sharp-3D-project/obj/Debug/net8.0/c-sharp-3D-project.csproj.CoreCompileInputs.cache
+/home/jackson/repos/c-sharp-3D-project/obj/Debug/net8.0/c-sharp-3D-project.sourcelink.json
