@@ -381,6 +381,16 @@
             "related": ".xml"
           }
         }
+      },
+      "3DProject/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/3DProject.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/3DProject.dll": {}
+        }
       }
     }
   },
@@ -974,10 +984,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "3DProject/1.0.0": {
+      "type": "project",
+      "path": "../3DProject/3DProject.csproj",
+      "msbuildProject": "../3DProject/3DProject.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "3DProject >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.6.0",
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.6.1",
@@ -991,11 +1007,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj",
-      "projectName": "3DProject_Test",
-      "projectPath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj",
+      "projectUniqueName": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/Tests.csproj",
+      "projectName": "Tests",
+      "projectPath": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/Tests.csproj",
       "packagesPath": "/home/jackson/.nuget/packages/",
-      "outputPath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/obj/",
+      "outputPath": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/jackson/.nuget/NuGet/NuGet.Config"
@@ -1009,7 +1025,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject.csproj": {
+              "projectPath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

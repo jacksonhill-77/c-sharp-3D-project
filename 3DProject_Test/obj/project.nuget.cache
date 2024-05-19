@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TRvErSfCshbfFRzZnG1XEI45Dm9vkEW7XwhFMC/e3m3tU4YFzlLsmU/ZaK2aBJmveES7t79USyWQxf7qQvr+eQ==",
+  "dgSpecHash": "SbEuM4BPVEM2h5S1ijANEzGG5iKFuUQVOhCAugBgu8tGb4HlRGr2yP1wXxjoSqlpqBhwaHFwTbdBSpRdnvuUhw==",
   "success": true,
-  "projectFilePath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj",
+  "projectFilePath": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/Tests.csproj",
   "expectedPackageFiles": [
     "/home/jackson/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj": {}
+    "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/3DProject_Test.csproj": {}
   },
   "projects": {
-    "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj": {
+    "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/3DProject_Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj",
+        "projectUniqueName": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/3DProject_Test.csproj",
         "projectName": "3DProject_Test",
-        "projectPath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/3DProject_Test.csproj",
+        "projectPath": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/3DProject_Test.csproj",
         "packagesPath": "/home/jackson/.nuget/packages/",
-        "outputPath": "/home/jackson/repos/c-sharp-3D-project/3DProject/3DProject_Test/obj/",
+        "outputPath": "/home/jackson/repos/c-sharp-3D-project/3DProject_Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jackson/.nuget/NuGet/NuGet.Config"
