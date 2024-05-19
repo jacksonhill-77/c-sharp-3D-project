@@ -17,7 +17,11 @@ namespace Project.Tests
                 new Point(2,2,2),
                 new Point(2,2,2),
                 new Point(1000,2000,2500),
-                new Point(3000,10000,5000)
+                new Point(3000,10000,5000),
+                new Point(3,3,3),
+                new Point(-10,12,-14),
+                new Point(2,2,2),
+                new Point(20000, 15000, 12000)
             };
         }
     }
@@ -30,7 +34,7 @@ namespace Project.Tests
         [SetUp]
         public void Setup()
         {
-            points = PointUtility.GetPoints()
+            points = PointUtility.GetPoints();
         }
 
         [Test]
@@ -70,18 +74,22 @@ namespace Project.Tests
     public class TriangleTests 
     {
 
+        private Point[] points;
+
         [SetUp]
         public void SetUp()
         {
-            this.p1 = new Point(5,5,5);
-            this.p2 = new Point(10,10,10);
-            this.p3 = new Point(-3,-8,-5);
-            this.p4 = new Point(-2,-7,-4);
-            this.p5 = new Point(2,2,2);
-            this.p6 = new Point(2,2,2);
-            this.p7 = new Point(1000,2000,2500);
-            this.p8 = new Point(3000,10000,5000);
+            points = PointUtility.GetPoints();
         }
+
+        [Test]
+        public void CalculatePerimeter_OrdinaryNumbers_ReturnsCorrectPerimeter()
+        {
+            Triangle triangle = new Triangle(points[0], points[1], points[8]);
+            Assert.That(triangle.Perimeter, Is.EqualTo(24.25).Within(0.01));
+        }
+
+
     }
 }
 

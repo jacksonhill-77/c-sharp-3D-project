@@ -53,10 +53,10 @@ namespace Project
 
         public double CalculateLength()
         {
-            double distanceX = Math.Pow((pointA.X - pointB.X), 2);
-            double distanceY = Math.Pow((pointA.Y - pointB.Y), 2);
-            double distanceZ = Math.Pow((pointA.Z - pointB.Z), 2);
-            return Math.Round(Math.Sqrt(distanceX + distanceY + distanceZ), 2);
+            double distanceX = Math.Pow(pointA.X - pointB.X, 2);
+            double distanceY = Math.Pow(pointA.Y - pointB.Y, 2);
+            double distanceZ = Math.Pow(pointA.Z - pointB.Z, 2);
+            return Math.Sqrt(distanceX + distanceY + distanceZ);
         }
     }
 
@@ -79,8 +79,12 @@ namespace Project
         {
             get 
             {
-                double s = l1.CalculateLength() + l2.CalculateLength() + l3.CalculateLength() / 2;
-                return Math.Round(Math.Sqrt(s * (s - l1.CalculateLength()) * (s - l2.CalculateLength()) * (s - l3.CalculateLength())), 2);
+                double s = (l1.CalculateLength() + l2.CalculateLength() + l3.CalculateLength()) / 2;
+                return Math.Round
+                (Math.Sqrt(s * 
+                (s - l1.CalculateLength()) * 
+                (s - l2.CalculateLength()) * 
+                (s - l3.CalculateLength())), 2);
             }
         }
 
