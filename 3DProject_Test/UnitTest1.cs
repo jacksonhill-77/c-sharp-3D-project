@@ -89,7 +89,26 @@ namespace Project.Tests
             Assert.That(triangle.Perimeter, Is.EqualTo(24.25).Within(0.01));
         }
 
+        [Test]
+        public void CalculatePerimeter_LargeNumbers_ReturnsCorrectPerimeter()
+        {
+            Triangle triangle = new Triangle(points[6], points[7], points[11]);
+            Assert.That(triangle.Perimeter, Is.EqualTo(52574.22).Within(0.01));
+        }
 
+        [Test]
+        public void CalculateArea_OrdinaryNumbers_ReturnsCorrectArea()
+        {
+            Triangle triangle = new Triangle(points[0], points[2], points[3]);
+            Assert.That(triangle.Area, Is.EqualTo(3.08).Within(0.01));
+        }
+
+        [Test]
+        public void CalculateArea_LargeNumbers_ReturnsCorrectArea()
+        {
+            Triangle triangle = new Triangle(points[6], points[7], points[11]);
+            Assert.That(triangle.Area, Is.EqualTo(68155153.87).Within(0.1));
+        }
     }
 }
 
