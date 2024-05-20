@@ -117,7 +117,7 @@ namespace Project.Tests
     {
 
         [Test]
-        public void AddPoint_UpdatesCorrectly() 
+        public void AddPoint_NewPoint_PointIsAdded() 
         {
             PointCollection pointCollection = new PointCollection();
             pointCollection.AddPoint(10, 5, 7);
@@ -125,9 +125,9 @@ namespace Project.Tests
             Assert.That((p.X, p.Y, p.Z), Is.EqualTo((10, 5, 7)));
         }
 
-        
+        // MethodName_StateUnderTest_ExpectedBehaviour
         [Test]
-        public void RemovePoint_UpdatesCorrectly() 
+        public void RemovePoint_ExistingPoint_PointIsRemoved() 
         {
             PointCollection pointCollection = new PointCollection();
             pointCollection.AddPoint(10, 5, 7);
@@ -137,12 +137,12 @@ namespace Project.Tests
         }
 
         [Test]
-        public void FindPoint_ReturnsCorrectPoint() 
+        public void FindPoint_ExistingPoint_ReturnsCorrectPoint() 
         {
             PointCollection pointCollection = new PointCollection();
             pointCollection.AddPoint(10, 5, 7);
             pointCollection.AddPoint(2, 4, 5);
-            Point p = pointCollection.FindPoint(2, 4, 5);
+            Point? p = pointCollection.FindPoint(2, 4, 5);
             Assert.That((p.X, p.Y, p.Z), Is.EqualTo((2, 4, 5)));
         }
 
@@ -157,7 +157,7 @@ namespace Project.Tests
         }
 
         [Test]
-        public void GetAllPoints_ReturnsPoints() 
+        public void GetAllPoints_MultiplePoints_ReturnsPoints() 
         {
             PointCollection pointCollection = new PointCollection();
             pointCollection.AddPoint(10, 5, 7);

@@ -57,22 +57,11 @@ namespace Project
             pointList.Add(new Point(x, y, z));
         }
 
-        public void RemovePoint(double x, double y, double z)
-        {   
-            foreach (Point p in pointList)
-            {
-                if (p.X == x && p.Y == y && p.Z == z)
-                {
-                    pointList.Remove(p);
-                    break;
-                }
-            }
-        }
-
-        public Point FindPoint(double x, double y, double z)
+        public Point? FindPoint(double x, double y, double z)
         {
+
             foreach (Point p in pointList) 
-            {
+            {   
                 if (p.X == x && p.Y == y && p.Z == z)
                 {
                     return p;
@@ -81,10 +70,30 @@ namespace Project
             return null;
         }
 
+        public void RemovePoint(double x, double y, double z)
+        {   
+            int index = -1;
+
+            foreach (Point p in pointList)
+            {
+                index++;
+                if (p.X == x && p.Y == y && p.Z == z)
+                {   
+                    break;
+                }
+            }
+            
+            if (0 <= index && index < pointList.Count) 
+            {
+                pointList.RemoveAt(index);
+            }
+        }
+
         public List<Point> GetAllPoints()
         {
             return pointList;
         }
+
     }
 
     public class Line 
