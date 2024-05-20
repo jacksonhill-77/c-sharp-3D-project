@@ -121,8 +121,8 @@ namespace Project.Tests
         {
             PointCollection pointCollection = new PointCollection();
             pointCollection.AddPoint(10, 5, 7);
-            Point returnedPoint = pointCollection.GetAllPoints()[0];
-            Assert.That((returnedPoint.X, returnedPoint.Y, returnedPoint.Z), Is.EqualTo((10, 5, 7)));
+            Point p = pointCollection.GetAllPoints()[0];
+            Assert.That((p.X, p.Y, p.Z), Is.EqualTo((10, 5, 7)));
         }
 
         
@@ -134,6 +134,27 @@ namespace Project.Tests
             pointCollection.RemovePoint(10, 5, 7);
             List<Point> points = pointCollection.GetAllPoints();
             Assert.That(points.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void FindPoint_ReturnsCorrectPoint() 
+        {
+            PointCollection pointCollection = new PointCollection();
+            pointCollection.AddPoint(10, 5, 7);
+            pointCollection.AddPoint(2, 4, 5);
+            Point p = pointCollection.FindPoint(2, 4, 5);
+            Assert.That((p.X, p.Y, p.Z), Is.EqualTo((2, 4, 5)));
+        }
+
+        [Test]
+        public void GetAllPoints_ReturnsPoints() 
+        {
+            PointCollection pointCollection = new PointCollection();
+            pointCollection.AddPoint(10, 5, 7);
+            pointCollection.AddPoint(2, 4, 5);
+            pointCollection.AddPoint(5,8,3); 
+            List<Point> points = pointCollection.GetAllPoints();
+            Assert.That((points[0].X, points[1].Y, points[2].Z), Is.EqualTo((10, 4, 3)));
         }
     }
 }
