@@ -147,6 +147,16 @@ namespace Project.Tests
         }
 
         [Test]
+        public void FindPoint_NoPoints_ReturnsNull() 
+        {
+            PointCollection pointCollection = new PointCollection();
+            pointCollection.AddPoint(10, 5, 7);
+            pointCollection.RemovePoint(10, 5, 7);
+            Point? p = pointCollection.FindPoint(10, 5, 7);
+            Assert.That(p, Is.EqualTo(null));
+        }
+
+        [Test]
         public void GetAllPoints_ReturnsPoints() 
         {
             PointCollection pointCollection = new PointCollection();
