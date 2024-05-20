@@ -66,25 +66,25 @@ namespace Project
         private Point p2;
         private Point p3;
 
-        private Line l1;
-        private Line l2;
-        private Line l3;
+        private double l1;
+        private double l2;
+        private double l3;
 
         public double Perimeter 
         {
-            get { return Math.Round(l1.CalculateLength() + l2.CalculateLength() + l3.CalculateLength(), 2); }
+            get { return Math.Round(l1 + l2 + l3, 2); }
         }
 
         public double Area 
         {
             get 
             {
-                double s = (l1.CalculateLength() + l2.CalculateLength() + l3.CalculateLength()) / 2;
+                double s = (l1 + l2 + l3) / 2;
                 return Math.Round
                 (Math.Sqrt(s * 
-                (s - l1.CalculateLength()) * 
-                (s - l2.CalculateLength()) * 
-                (s - l3.CalculateLength())), 2);
+                (s - l1) * 
+                (s - l2) * 
+                (s - l3)), 2);
             }
         }
 
@@ -94,9 +94,13 @@ namespace Project
             this.p2 = p2;
             this.p3 = p3;
 
-            l1 = new Line(p1, p2);
-            l2 = new Line(p2, p3);
-            l3 = new Line(p3, p1);
+            Line line1 = new Line(p1, p2);
+            Line line2 = new Line(p2, p3);
+            Line line3 = new Line(p3, p1);
+
+            l1 = line1.CalculateLength();
+            l2 = line2.CalculateLength();
+            l3 = line3.CalculateLength();
         }
 
     }
