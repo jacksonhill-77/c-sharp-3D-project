@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Project 
 {
@@ -37,6 +40,50 @@ namespace Project
         public override string ToString()
         {
             return $"({X}, {Y}, {Z})";
+        }
+    }
+
+    public class PointCollection
+    {
+        private List<Point> pointList;
+
+        public PointCollection()
+        {
+            pointList = new List<Point>();
+        }
+
+        public void AddPoint(double x, double y, double z) 
+        {
+            pointList.Add(new Point(x, y, z));
+        }
+
+        public void RemovePoint(double x, double y, double z)
+        {   
+            foreach (Point p in pointList)
+            {
+                if (p.X == x && p.Y == y && p.Z == z)
+                {
+                    pointList.Remove(p);
+                    break;
+                }
+            }
+        }
+
+        public Point FindPoint(double x, double y, double z)
+        {
+            foreach (Point p in pointList) 
+            {
+                if (p.X == x && p.Y == y && p.Z == z)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+
+        public List<Point> GetAllPoints()
+        {
+            return pointList;
         }
     }
 

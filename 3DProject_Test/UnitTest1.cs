@@ -1,5 +1,6 @@
 using Project;
 using NUnit.Framework;
+using System.Runtime;
 
 namespace Project.Tests
 {   
@@ -108,6 +109,31 @@ namespace Project.Tests
         {
             Triangle triangle = new Triangle(points[6], points[7], points[11]);
             Assert.That(triangle.Area, Is.EqualTo(68155153.87).Within(0.1));
+        }
+    }
+
+    [TestFixture]
+    public class PointCollectionTests
+    {
+
+        [Test]
+        public void AddPoint_UpdatesCorrectly() 
+        {
+            PointCollection pointCollection = new PointCollection();
+            pointCollection.AddPoint(10, 5, 7);
+            Point returnedPoint = pointCollection.GetAllPoints()[0];
+            Assert.That((returnedPoint.X, returnedPoint.Y, returnedPoint.Z), Is.EqualTo((10, 5, 7)));
+        }
+
+        
+        [Test]
+        public void RemovePoint_UpdatesCorrectly() 
+        {
+            PointCollection pointCollection = new PointCollection();
+            pointCollection.AddPoint(10, 5, 7);
+            pointCollection.RemovePoint(10, 5, 7);
+            List<Point> points = pointCollection.GetAllPoints();
+            Assert.That(points.Count, Is.EqualTo(0));
         }
     }
 }
