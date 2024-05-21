@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
@@ -43,6 +44,28 @@ namespace Project
         }
     }
 
+    public static class PointUtility
+    {
+        public static Point[] GetPoints()
+        {
+            return new Point[]
+            {
+                new Point(5,5,5),
+                new Point(10,10,10),
+                new Point(-3,-8,-5),
+                new Point(-2,-7,-4),
+                new Point(2,2,2),
+                new Point(2,2,2),
+                new Point(1000,2000,2500),
+                new Point(3000,10000,5000),
+                new Point(3,3,3),
+                new Point(-10,12,-14),
+                new Point(2,2,2),
+                new Point(20000, 15000, 12000)
+            };
+        }
+    }
+
     public class PointCollection
     {
         private List<Point> pointList;
@@ -50,6 +73,11 @@ namespace Project
         public PointCollection()
         {
             pointList = new List<Point>();
+        }
+
+        public void AddPointObject(Point p)
+        {
+            pointList.Add(p);
         }
 
         public void AddPoint(double x, double y, double z) 
@@ -92,6 +120,35 @@ namespace Project
         public List<Point> GetAllPoints()
         {
             return pointList;
+        }
+
+        public void WriteToFile(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (Point p in pointList)
+                {
+                    writer.WriteLine(string.Join(",", $"{p.X.ToString()}, {p.Y.ToString()}, {p.Z.ToString()}"));
+                }
+            }
+        }
+
+        public void ReadFromFile(string filePath)
+        {
+            var lines = File.ReadLines(filePath);
+
+            foreach (var line in lines) 
+            {
+                string[] cols = line.Split(',');
+
+                double x = int.Parse(cols[0].Trim());
+                double y = int.Parse(cols[1].Trim());
+                double z = int.Parse(cols[2].Trim());
+
+                Point p = new Point(x, y, z);
+
+                pointList.Add(p);
+            }
         }
 
     }
@@ -168,14 +225,7 @@ namespace Project
     class Program 
     {
         static void Main()
-        {
-            Point p1 = new Point(4, 10, 3);
-            Point p2 = new Point(3, 5, 10);
-            Point p3 = new Point(5, 10, 25);
-
-            Triangle triangle = new Triangle(p1, p2, p3);
-            Console.WriteLine($"The perimeter of your triangle is {triangle.Perimeter} units.");
-            Console.WriteLine($"The area of your triangle is {triangle.Area} units squared.");
+        {    
         }
     }
 }

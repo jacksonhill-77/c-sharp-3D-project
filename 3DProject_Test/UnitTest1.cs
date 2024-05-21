@@ -5,28 +5,6 @@ using System.Runtime;
 namespace Project.Tests
 {   
 
-    public static class PointUtility
-    {
-        public static Point[] GetPoints()
-        {
-            return new Point[]
-            {
-                new Point(5,5,5),
-                new Point(10,10,10),
-                new Point(-3,-8,-5),
-                new Point(-2,-7,-4),
-                new Point(2,2,2),
-                new Point(2,2,2),
-                new Point(1000,2000,2500),
-                new Point(3000,10000,5000),
-                new Point(3,3,3),
-                new Point(-10,12,-14),
-                new Point(2,2,2),
-                new Point(20000, 15000, 12000)
-            };
-        }
-    }
-
     [TestFixture]
     public class LineTests
     {
@@ -165,6 +143,25 @@ namespace Project.Tests
             pointCollection.AddPoint(5,8,3); 
             List<Point> points = pointCollection.GetAllPoints();
             Assert.That((points[0].X, points[1].Y, points[2].Z), Is.EqualTo((10, 4, 3)));
+        }
+
+        [Test]
+        public void WriteToFile_PointArray_AddsValuesToColumns()
+        {
+            PointCollection pointCollection = new PointCollection();
+            Point[] testPoints = PointUtility.GetPoints();
+
+            foreach (Point p in testPoints)
+            {
+                pointCollection.AddPointObject(p);
+            }
+
+            pointCollection.WriteToFile("./points.csv");
+            pointCollection.ReadFromFile("./points.csv");  
+
+            List<Point> points = pointCollection.GetAllPoints();
+
+            Assert.That((points[0].X, points[1].Y, points[2].Z), Is.EqualTo((5,5,5)));
         }
     }
 }
