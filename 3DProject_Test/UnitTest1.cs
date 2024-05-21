@@ -161,9 +161,16 @@ namespace Project.Tests
 
             List<Point> points = pointCollection.GetAllPoints();
 
-            PointUtility.WritePointToConsole(points[0]);
-
             Assert.That((points[0].X, points[0].Y, points[0].Z), Is.EqualTo((5, 5, 5)));
+        }
+
+        [Test]
+        public void ReadFromFile_NoFileExists_CatchExceptionWorks()
+        {
+            PointCollection pointCollection = new PointCollection();
+
+            var ex = Assert.Throws<FileNotFoundException>(() => 
+            pointCollection.ReadFromFile("./imaginary_points.csv"));
         }
     }
 }

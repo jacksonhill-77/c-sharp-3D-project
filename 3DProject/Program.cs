@@ -140,20 +140,30 @@ namespace Project
 
         public void ReadFromFile(string filePath)
         {
-            var lines = File.ReadLines(filePath);
-
-            foreach (var line in lines) 
+            if (File.Exists(filePath)) 
             {
-                string[] cols = line.Split(',');
+                var lines = File.ReadLines(filePath);
 
-                double x = int.Parse(cols[0].Trim());
-                double y = int.Parse(cols[1].Trim());
-                double z = int.Parse(cols[2].Trim());
+                foreach (var line in lines) 
+                {
+                    string[] cols = line.Split(',');
 
-                Point p = new Point(x, y, z);
+                    double x = int.Parse(cols[0].Trim());
+                    double y = int.Parse(cols[1].Trim());
+                    double z = int.Parse(cols[2].Trim());
 
-                pointList.Add(p);
+                    Point p = new Point(x, y, z);
+
+                    pointList.Add(p);
+                }
             }
+
+            else
+            {
+                throw new FileNotFoundException($"The file '{filePath}' was not found.");
+            }
+            
+
         }
 
     }
