@@ -161,7 +161,9 @@ namespace Project.Tests
 
             List<Point> points = pointCollection.GetAllPoints();
 
-            Assert.That((points[0].X, points[1].Y, points[2].Z), Is.EqualTo((5,5,5)));
+            PointUtility.WritePointToConsole(points[0]);
+
+            Assert.That((points[0].X, points[0].Y, points[0].Z), Is.EqualTo((5, 5, 5)));
         }
     }
 }
