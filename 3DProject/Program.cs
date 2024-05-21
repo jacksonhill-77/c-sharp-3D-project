@@ -64,6 +64,11 @@ namespace Project
                 new Point(20000, 15000, 12000)
             };
         }
+
+        public static void WritePointToConsole(Point p)
+        {
+            Console.WriteLine($"{p.X}, {p.Y}, {p.Z}");
+        }
     }
 
     public class PointCollection
@@ -127,7 +132,7 @@ namespace Project
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 foreach (Point p in pointList)
-                {
+                {   
                     writer.WriteLine(string.Join(",", $"{p.X.ToString()}, {p.Y.ToString()}, {p.Z.ToString()}"));
                 }
             }
