@@ -138,32 +138,35 @@ namespace Project
             }
         }
 
-        public void ReadFromFile(string filePath)
+        private void addPointsFromLinesToCollection(string filePath)
         {
+            var lines = File.ReadLines(filePath);
+
+            foreach (var line in lines) 
+            {
+                string[] cols = line.Split(',');
+
+                double x = int.Parse(cols[0].Trim());
+                double y = int.Parse(cols[1].Trim());
+                double z = int.Parse(cols[2].Trim());
+
+                Point p = new Point(x, y, z);
+
+                pointList.Add(p);
+            }
+        }
+
+        public void ReadPointsFromFile(string filePath)
+        {
+
             if (File.Exists(filePath)) 
             {
-                var lines = File.ReadLines(filePath);
-
-                foreach (var line in lines) 
-                {
-                    string[] cols = line.Split(',');
-
-                    double x = int.Parse(cols[0].Trim());
-                    double y = int.Parse(cols[1].Trim());
-                    double z = int.Parse(cols[2].Trim());
-
-                    Point p = new Point(x, y, z);
-
-                    pointList.Add(p);
-                }
+                addPointsFromLinesToCollection(filePath);
             }
-
             else
             {
                 throw new FileNotFoundException($"The file '{filePath}' was not found.");
             }
-            
-
         }
 
     }

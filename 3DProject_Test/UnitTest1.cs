@@ -157,7 +157,7 @@ namespace Project.Tests
             }
 
             pointCollection.WriteToFile("./points.csv");
-            pointCollection.ReadFromFile("./points.csv");  
+            pointCollection.ReadPointsFromFile("./points.csv");  
 
             List<Point> points = pointCollection.GetAllPoints();
 
@@ -170,7 +170,7 @@ namespace Project.Tests
             PointCollection pointCollection = new PointCollection();
 
             var ex = Assert.Throws<FileNotFoundException>(() => 
-            pointCollection.ReadFromFile("./imaginary_points.csv"));
+            pointCollection.ReadPointsFromFile("./imaginary_points.csv"));
         }
     }
 }
